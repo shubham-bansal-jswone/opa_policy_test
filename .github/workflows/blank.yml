@@ -34,3 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: OPA Test and Coverage Report
+        uses: masterpointio/github-action-opa-rego-test@v1.0.0
+            
