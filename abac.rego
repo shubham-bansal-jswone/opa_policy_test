@@ -26,29 +26,8 @@ import rego.v1
 
 default allow := false
 
-allow if user_is_owner
-
 allow if {
-	user_is_employee
-	action_is_read
+	user_city_manaus
 }
 
-allow if {
-   user_city_manaus
-}
-
-
-user_city_manaus if data[input.username].metadata.location.city == "manaus"
-user_is_owner if data.user_attributes[input.user].title == "owner"
-
-user_is_employee if data.user_attributes[input.user].title == "employee"
-
-user_is_customer if data.user_attributes[input.user].title == "customer"
-
-user_is_senior if data.user_attributes[input.user].tenure > 8
-
-action_is_read if input.action == "read"
-
-action_is_update if input.action == "update"
-
-pet_is_adopted if data.pet_attributes[input.resource].adopted == true
+user_city_manaus if data.users.[input.username].metadata.location.city == "manaus"
