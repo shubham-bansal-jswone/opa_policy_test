@@ -30,4 +30,4 @@ allow if {
 	user_city_manaus
 }
 
-user_city_manaus if data.users.[input.username].metadata.location.city == "manaus"
+user_city_manaus if data.users[input.username].metadata.location.city == "manaus"
